@@ -6,7 +6,15 @@ describe("ChangeHandler", function() {
     expect(ChangeHandler).toBeDefined();
   });
 
-  // TODO: Add additional tests below...
+  // Constructor Tests
+  test("1a. amountDue is set based on an argument", () => {
+      const ch = new ChangeHandler(12);
+      expect(ch.amountDue).toEqual(12);
+  });
 
+  test("1b. cashTendered is set to 0", () => {
+    const ch = new ChangeHandler();
+    expect(ch.cashTendered).toEqual(0);
+});
 
 });
