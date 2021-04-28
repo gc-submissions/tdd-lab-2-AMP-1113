@@ -15,7 +15,14 @@ class ChangeHandler {
      * @param {string} type either quarter, dime, nickel, or penny
      */
     insertCoin(type) {
-      // TODO
+      let quarter = 25;
+      let dime = 10;
+
+      if (type === quarter) {
+        this.cashTendered += quarter;
+      } else if (type === dime) {
+        this.cashTendered += dime;
+      }
     }
 
     /**

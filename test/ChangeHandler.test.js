@@ -15,6 +15,20 @@ describe("ChangeHandler", function() {
   test("1b. cashTendered is set to 0", () => {
     const ch = new ChangeHandler();
     expect(ch.cashTendered).toEqual(0);
-});
+  });
+
+  test("2a. Inserting a quarter adds 25", () => {
+    const ch = new ChangeHandler(10);
+    const quarter = 25;
+    ch.insertCoin(quarter);
+    expect(ch.cashTendered).toEqual(25); 
+  });  
+
+  test("2b. Inserting a dime adds 10", () => {
+    const ch = new ChangeHandler(10);
+    const dime = 10;
+    ch.insertCoin(dime);
+    expect(ch.cashTendered).toEqual(10); 
+  });  
 
 });
