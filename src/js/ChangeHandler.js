@@ -15,9 +15,22 @@ class ChangeHandler {
      * @param {string} type either quarter, dime, nickel, or penny
      */
     insertCoin(type) {
-      // TODO
-    }
+      const quarter = 25;
+      const dime = 10;
+      const nickel = 5;
+      const penny = 1;
 
+      if (type === quarter) {
+        this.cashTendered += quarter;
+      } else if (type === dime) {
+        this.cashTendered += dime;
+      } else if (type === nickel) {
+        this.cashTendered += nickel;
+      } else {
+        this.cashTendered += penny;
+      }
+    }
+    
     /**
      * Returns true if enough coins have been inserted to at least meet the amountDue
      */
