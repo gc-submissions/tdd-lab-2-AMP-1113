@@ -85,7 +85,3 @@ describe("ChangeHandler", function() {
   });
 
   });
-
-
-
-});
