@@ -30,7 +30,7 @@ class ChangeHandler {
         this.cashTendered += penny;
       }
     }
-
+    
     /**
      * Returns true if enough coins have been inserted to at least meet the amountDue
      */
