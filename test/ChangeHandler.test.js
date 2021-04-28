@@ -52,6 +52,7 @@ describe("ChangeHandler", function() {
     ch.insertCoin(dime);
     ch.insertCoin(quarter);
     expect(ch.cashTendered).toEqual(41); 
+
   }); 
 
   test("3a. Returns true if cashTendered more than amountDue", () => {
@@ -82,4 +83,9 @@ describe("ChangeHandler", function() {
     const result = ch.isPaymentSufficient()
     expect(result).toEqual(true);
   });
+
+  });
+
+
+
 });
