@@ -19,29 +19,38 @@ describe("ChangeHandler", function() {
 
   test("2a. Inserting a quarter adds 25", () => {
     const ch = new ChangeHandler(10);
-    const quarter = 25;
-    ch.insertCoin(quarter);
+    ch.insertCoin(25);
     expect(ch.cashTendered).toEqual(25); 
   });  
 
   test("2b. Inserting a dime adds 10", () => {
     const ch = new ChangeHandler(10);
-    const dime = 10;
-    ch.insertCoin(dime);
+    ch.insertCoin(10);
     expect(ch.cashTendered).toEqual(10); 
   });  
 
   test("2c. Inserting a nickel adds 5", () => {
     const ch = new ChangeHandler(10);
-    const nickel = 5;
-    ch.insertCoin(nickel);
+    ch.insertCoin(5);
     expect(ch.cashTendered).toEqual(5); 
   }); 
 
   test("2d. Inserting a penny adds 1", () => {
     const ch = new ChangeHandler(10);
-    const penny = 1;
-    ch.insertCoin(penny);
+    ch.insertCoin(1);
     expect(ch.cashTendered).toEqual(1); 
+  }); 
+
+  test("2e. Calling function multiple times continues to add to amount", () => {
+    const ch = new ChangeHandler(10);
+    const penny = 1;
+    const nickel = 5;
+    const dime = 10;
+    const quarter = 25;
+    ch.insertCoin(penny);
+    ch.insertCoin(nickel);
+    ch.insertCoin(dime);
+    ch.insertCoin(quarter);
+    expect(ch.cashTendered).toEqual(41); 
   }); 
 });
