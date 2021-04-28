@@ -31,4 +31,17 @@ describe("ChangeHandler", function() {
     expect(ch.cashTendered).toEqual(10); 
   });  
 
+  test("2c. Inserting a nickel adds 5", () => {
+    const ch = new ChangeHandler(10);
+    const nickel = 5;
+    ch.insertCoin(nickel);
+    expect(ch.cashTendered).toEqual(5); 
+  }); 
+
+  test("2d. Inserting a penny adds 1", () => {
+    const ch = new ChangeHandler(10);
+    const penny = 1;
+    ch.insertCoin(penny);
+    expect(ch.cashTendered).toEqual(1); 
+  }); 
 });
