@@ -20,13 +20,13 @@ class ChangeHandler {
       const nickel = 5;
       const penny = 1;
 
-      if (type === quarter) {
+      if (type === "quarter") {
         this.cashTendered += quarter;
-      } else if (type === dime) {
+      } else if (type === "dime") {
         this.cashTendered += dime;
-      } else if (type === nickel) {
+      } else if (type === "nickel") {
         this.cashTendered += nickel;
-      } else {
+      } else if (type === "penny") {
         this.cashTendered += penny;
       }
     }
@@ -99,6 +99,7 @@ class ChangeHandler {
         // remainder should be zero
         change -= (coinValues[3] * pennyCount)
         console.log(change);
+        
       } else if (Math.floor(change / coinValues[3]) >= 1){
         pennyCount += Math.floor(change / coinValues[3]);
         console.log(pennyCount);
