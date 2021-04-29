@@ -132,5 +132,41 @@ describe("ChangeHandler", function() {
     });
   });
 
+  test("extra test- 4 change / 4 pennies", () => {
+    const ch = new ChangeHandler(96);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    const result = ch.giveChange();
+    expect(result).toEqual({
+      quarters: 0, dimes: 0, nickels: 0, pennies: 4
+    });
+  });
+
+  // test.only("extra test- 5 change 1 nickel", () => {
+  //   const ch = new ChangeHandler(95);
+  //   ch.insertCoin(25);
+  //   ch.insertCoin(25);
+  //   ch.insertCoin(25);
+  //   ch.insertCoin(25);
+  //   const result = ch.giveChange();
+  //   expect(result).toEqual({
+  //     quarters: 0, dimes: 0, nickels: 1, pennies: 0
+  //   });
+  // });
+
+  test("extra test- 2 change 1 quarter", () => {
+    const ch = new ChangeHandler(75);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    const result = ch.giveChange();
+    expect(result).toEqual({
+      quarters: 1, dimes: 0, nickels: 0, pennies: 0
+    });
+  });
+
 
 });

@@ -52,29 +52,21 @@ class ChangeHandler {
 
       if (Math.floor(change / coinValues[0]) >= 1) {
         quarterCount += Math.floor(change / coinValues[0]);
-        // console.log(quarterCount);
         // get remainder change
         change -= (coinValues[0] * quarterCount)
-        // console.log("change after quarter" + change);
         dimeCount += Math.floor(change / coinValues[1]);
-        // console.log("dime count" + dimeCount);
         // update remainder
         change -= (coinValues[1] * dimeCount)
-        // console.log("change after dime" + change);
         // get nickel count in remaining change
         nickelCount += Math.floor(change / coinValues[2]);
-        // console.log("nickel count" + nickelCount);
         // update remainder
         change -= (coinValues[2] * nickelCount)
-        // console.log("change after nickel" + change);
         // get penny count in remainging change
         pennyCount += Math.floor(change / coinValues[3]);
-        // console.log("penny count" + pennyCount);
         // remainder should be zero
         change -= (coinValues[3] * pennyCount)
-        // console.log("change after penny" + change);
 
-      } else if (Math.floor(change / coinValues[1])) {
+      } else if (Math.floor(change / coinValues[1]) >= 1) {
         dimeCount += Math.floor(change / coinValues[1]);
         console.log("HEY" + dimeCount);
         // update remainder
@@ -93,14 +85,21 @@ class ChangeHandler {
         change -= (coinValues[3] * pennyCount)
         console.log(change);
 
-      } else if (Math.floor(change / coinValues[1])) {
+      } else if (Math.floor(change / coinValues[1]) >= 1) {
+        console.log(change)
         // get nickel count in remaining change
         nickelCount += Math.floor(change / coinValues[2]);
-        console.log(nickelCount);
+        console.log("hello" + nickelCount);
         // update remainder
         change -= (coinValues[2] * nickelCount)
         console.log(change);
         // get penny count in remainging change
+        pennyCount += Math.floor(change / coinValues[3]);
+        console.log(pennyCount);
+        // remainder should be zero
+        change -= (coinValues[3] * pennyCount)
+        console.log(change);
+      } else if (Math.floor(change / coinValues[3]) >= 1){
         pennyCount += Math.floor(change / coinValues[3]);
         console.log(pennyCount);
         // remainder should be zero
