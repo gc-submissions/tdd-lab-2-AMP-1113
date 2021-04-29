@@ -84,4 +84,53 @@ describe("ChangeHandler", function() {
     expect(result).toEqual(true);
   });
 
+  test("4a. 32 change = 1-Q, 0-D, 1-N, 2-P", () => {
+    const ch = new ChangeHandler(68);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    const result = ch.giveChange();
+    expect(result).toEqual({
+      quarters: 1, dimes: 0, nickels: 1, pennies: 2
+    });
   });
+
+  test("4b. 10 change = 0-Q, 1-D, 0-N, 0-P", () => {
+    const ch = new ChangeHandler(90);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    const result = ch.giveChange();
+    expect(result).toEqual({
+      quarters: 0, dimes: 1, nickels: 0, pennies: 0
+    });
+  });
+
+  test("4c. 27 change = 1-Q, 0-D, 0-N, 2-P", () => {
+    const ch = new ChangeHandler(73);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    const result = ch.giveChange();
+    expect(result).toEqual({
+      quarters: 1, dimes: 0, nickels: 0, pennies: 2
+    });
+  });
+
+  test("4d. 68 change = 2-Q, 1-D, 1-N, 3-P", () => {
+    const ch = new ChangeHandler(32);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    ch.insertCoin(25);
+    const result = ch.giveChange();
+    expect(result).toEqual({
+      quarters: 2, dimes: 1, nickels: 1, pennies: 3
+    });
+  });
+
+
+});
