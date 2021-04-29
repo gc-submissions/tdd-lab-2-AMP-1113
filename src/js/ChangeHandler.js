@@ -9,7 +9,7 @@ class ChangeHandler {
         this.amountDue = amountDue;
         this.cashTendered = 0;
     }
-
+  
     /**
      * The customer inserts a coin, increasing the cashTendered.
      * @param {string} type either quarter, dime, nickel, or penny
@@ -43,14 +43,78 @@ class ChangeHandler {
     }
 
     giveChange() {
-        // TODO return the correct change in the following format...
+      let change = this.cashTendered - this.amountDue;
+      let quarterCount = 0;
+      let nickelCount = 0;
+      let dimeCount = 0;
+      let pennyCount = 0;
+      const coinValues = [25, 10, 5, 1];
+
+      if (Math.floor(change / coinValues[0]) >= 1) {
+        quarterCount += Math.floor(change / coinValues[0]);
+        // console.log(quarterCount);
+        // get remainder change
+        change -= (coinValues[0] * quarterCount)
+        // console.log("change after quarter" + change);
+        dimeCount += Math.floor(change / coinValues[1]);
+        // console.log("dime count" + dimeCount);
+        // update remainder
+        change -= (coinValues[1] * dimeCount)
+        // console.log("change after dime" + change);
+        // get nickel count in remaining change
+        nickelCount += Math.floor(change / coinValues[2]);
+        // console.log("nickel count" + nickelCount);
+        // update remainder
+        change -= (coinValues[2] * nickelCount)
+        // console.log("change after nickel" + change);
+        // get penny count in remainging change
+        pennyCount += Math.floor(change / coinValues[3]);
+        // console.log("penny count" + pennyCount);
+        // remainder should be zero
+        change -= (coinValues[3] * pennyCount)
+        // console.log("change after penny" + change);
+
+      } else if (Math.floor(change / coinValues[1])) {
+        dimeCount += Math.floor(change / coinValues[1]);
+        console.log("HEY" + dimeCount);
+        // update remainder
+        change -= (coinValues[1] * dimeCount)
+        console.log(change);
+        // get nickel count in remaining change
+        nickelCount += Math.floor(change / coinValues[2]);
+        console.log(nickelCount);
+        // update remainder
+        change -= (coinValues[2] * nickelCount)
+        console.log(change);
+        // get penny count in remainging change
+        pennyCount += Math.floor(change / coinValues[3]);
+        console.log(pennyCount);
+        // remainder should be zero
+        change -= (coinValues[3] * pennyCount)
+        console.log(change);
+
+      } else if (Math.floor(change / coinValues[1])) {
+        // get nickel count in remaining change
+        nickelCount += Math.floor(change / coinValues[2]);
+        console.log(nickelCount);
+        // update remainder
+        change -= (coinValues[2] * nickelCount)
+        console.log(change);
+        // get penny count in remainging change
+        pennyCount += Math.floor(change / coinValues[3]);
+        console.log(pennyCount);
+        // remainder should be zero
+        change -= (coinValues[3] * pennyCount)
+        console.log(change);
+      }
         return {
-            quarters: 0,
-            dimes: 0,
-            nickels: 0,
-            pennies: 0
+          quarters: quarterCount,
+          dimes: dimeCount,
+          nickels: nickelCount,
+          pennies: pennyCount
         }
     }
+
 }
 
 module.exports = ChangeHandler;
